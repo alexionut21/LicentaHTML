@@ -1,0 +1,161 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flat UI Login</title>
+  
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+	
+	<link rel="stylesheet" href="calc.css">  
+	<link rel="stylesheet" href="loginCSS.css">
+	<link rel="stylesheet" href="menu.css">
+	<link rel="stylesheet" href="flipCard.css">  
+	<link rel="stylesheet" href="quotes.css">  	
+
+</head>
+
+<body>
+
+  <div id="wrap">
+  <div id="regbar">
+    <div id="navthing">
+      <h2><a href="#" id="loginform">Login</a> | <a href="#">Register</a></h2>
+    <div class="login">
+      <div class="arrow-up"></div>
+      <div class="formholder">
+        <div class="randompad">
+           <fieldset>
+             <label name="email">Email</label>
+             <input type="email" placeholder="example@example.com" />
+             <label name="password">Password</label>
+             <input type="password" placeholder="Password" />
+             <input type="submit" value="Login" /> 
+           </fieldset>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<nav role="navigation">
+  <div id="menuToggle">
+   <input type="checkbox" />
+   
+   <span></span>
+    <span></span>
+    <span></span>
+   
+    <ul id="menu">
+      <a href="LOGIN.html">
+        <li>Home</li>
+      </a>
+      <a href="articles.html">
+        <li>Articles</li>
+      </a>
+      <a href="Calc.html">
+        <li>Calorie calculator</li>
+      </a>
+      <a href="bmi.html">
+        <li>Body mass index</li>
+      </a>
+      <a href="#">
+        <li>Challenges</li>
+      </a>
+		 <a href="diet.html">
+        <li>Diet</li>
+		</a>
+    </ul>
+  </div>
+</nav>
+
+    <div style="padding-left:350px;" class="col-12 col-sm-9 col-lg-7"> 
+
+<h1>Put your diet on autopilot</h1>
+	                     <style type="text/css">
+.displayNone { display:none; }
+.displayBlock { display:block !important; }
+#advanced { background-color: #FFFFFF; border: 1px solid #DEDEDE; display: none; font-size: 0.8125em; margin-left: auto; margin-right: auto; max-width: 350px; padding: 2%; }
+.tooltable td { border-width:0; }
+#zigResultsTable td { padding: 0px 4px 0px 4px; border:1px solid #d9d9d9; border-right:0; border-left:0; }
+#zigResultsTable { width:100%; }
+.small { font-size:13px; }
+table.formulas .small { font-size:12px; }10
+#nowwhat { min-width:75%; background: #d6d6d6; background: rgba(0, 0, 0, 0.06); border-radius: 3px; padding: 6px 12px; }
+</style>
+<script>
+function init() {
+	document.getElementById("calories").focus();
+}
+document.addEventListener('DOMContentLoaded', init, false);
+</script>
+ <noscript>
+      <div class="alert">Hey! You have JavaScript disabled on your browser. The calculator will not work. <a target="_blank" href="http://www.enable-javascript.com/">See how to enable JavaScript on your browser.</a></div>
+      </noscript>
+<div class="tooltable">
+        <form name="calc" class="no-space-bottom">
+          <h2>Create your meal plan right here in seconds.</h2>
+          <div class="label-align">
+            <label class="inline">I want to eat </label>
+            <span id="ageerror"><span class="tip"></span>
+            <input name="calories" type="number" id="calories" autocorrect="off">
+            <label class="inline">calories in </label>
+			 <input name="meals" type="number" id="meals" autocorrect="off">
+			 <label class="inline">meals</label>
+            <input type="submit" class="btn btn-blue btn-large float-center text-tall inline" style="color:white;" value="Calculate" onClick="calcalcIt();event.preventDefault();" id="Button1" name="Button1">
+			</span>          
+          </div>
+          <div id="printArea" style="display:none;">
+            <div id="printAreainset">
+              <div class="tooltable float-center" style="min-width:80%;padding-right:0;padding-left:0;">
+                <p><label class="text-center">Meal plan</label></p>
+                <table width="100%"  border="0" cellspacing="0" cellpadding="0" style="box-shadow:none;">
+                  <tr>
+                    <td align="right" class="tooltable-cell-width"><label class="biglabel">Breakfast</label></td>
+					<td  align="left" class="tooltable-cell-width"><div class="calwrap"><span id="breakfast">?</span><span id="cal1" class="cal">PHOTO</span></div></td>
+                    <td  align="left" class="tooltable-cell-width"><div class="calwrap"><span id="breakfast">?</span><span id="cal1" class="cal">CALORIES/MEAL</span></div></td>
+                  </tr>
+                  <tr>
+                     <td align="right" class="tooltable-cell-width"><label class="biglabel">Launch</label></td>
+					<td  align="left" class="tooltable-cell-width"><div class="calwrap"><span id="launch">?</span><span id="cal1" class="cal">PHOTO</span></div></td>
+                    <td  align="left" class="tooltable-cell-width"><div class="calwrap"><span id="launch">?</span><span id="cal1" class="cal">CALORIES/MEAL</span></div></td>
+                  </tr>
+                  <tr>
+                     <td align="right" class="tooltable-cell-width"><label class="biglabel">Dinner</label></td>
+					<td  align="left" class="tooltable-cell-width"><div class="calwrap"><span id="dinner">?</span><span id="cal1" class="cal">PHOTO</span></div></td>
+                    <td  align="left" class="tooltable-cell-width"><div class="calwrap"><span id="dinner">?</span><span id="cal1" class="cal">CALORIES/MEAL</span></div></td>
+                  </tr>
+				   <tr>
+                     <td align="right" class="tooltable-cell-width"><label class="biglabel">TOTAL CALORIES</label></td>
+					 <td></td>
+                    <td  align="left" class="tooltable-cell-width"><div class="calwrap"><span id="result">?</span><span id="cal1" class="cal">SUM</span></div></td>
+                  </tr>
+                </table>              
+              </div>
+            </div>
+			 <div style="margin:10px 0px 10px 0;text-align:right;"><a style="text-decoration:none;color:#aaa;" href="#" onClick="printThis('printAreainset');return false;" title="Print results"><img src="/images/print-icon.png" style="vertical-align:middle;" width="17" height="19" alt="Print results"> Print</a></div>
+            
+          </div>
+        </form>
+      </div>
+
+
+
+	<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src="jquery.big-slide.js"></script>
+	<script  src="loginJS.js"></script>
+	<script  src="diet.js"></script>
+
+
+
+</body>
+
+</html>
+ 

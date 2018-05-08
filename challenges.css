@@ -1,0 +1,109 @@
+.challenge-title {
+    background-image: url(https://lazarangelov.academy/assets/img/png/program-workout-black-pattern.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    font-family: "Oswald", Arial, sans-serif;
+    color: #FFF;
+    width: auto;
+    margin: 0 auto 0 40%;
+	position:absolute;
+}
+.box {
+margin-top:200px;
+margin-left:100px;
+ border: 2px solid grey;
+ width:90%;
+ background-color:white;
+ 
+}
+.img-responsive {
+    display: block;
+    width: 150%;
+    height: auto;
+}
+img {
+    vertical-align: middle;
+}
+img {
+    border: 0;
+}
+.challenge-name{
+    font-size: 25px;
+    font-family: "Oswald", Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.challenge-deadline{
+    font-size: 24px;
+    font-family: "Oswald", Arial, sans-serif;
+    font-weight: normal;
+    color: #999;
+    text-transform: uppercase;
+}
+ .challenge-target {
+    font-size: 32px;
+    font-family: "Oswald", Arial, sans-serif;
+    text-transform: uppercase;
+}
+ .challenge-target span {
+    color: #893838;
+    font-weight: bold;
+}
+.hustlers-title {
+    font-size: 24px;
+    font-family: "Oswald", Arial, sans-serif;
+    font-weight: normal;
+    color: #999;
+    text-transform: uppercase;
+}
+.hustlers {
+    font-size: 36px;
+    font-family: "Oswald", Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.total-hustlers {
+    font-size: 36px;
+    font-family: "Oswald", Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.txt-uppercase {
+    font-family: "Oswald", Arial, sans-serif;
+    text-transform: uppercase;
+}
+.btn:hover{
+    color: #fff;
+    background-color: black;
+    border-color: #893838;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 15px 12px;
+    font-size: 18px;
+    line-height: 1.42857;
+    border-radius: 0.8em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #fff;
+    background-color: #893838;
+    border-color: #893838;
+}
