@@ -26,9 +26,10 @@
   
 </head>
 <body>
-<%	String log = (String) request.getAttribute("log");
-	System.out.println("JSP "+log); 
+<%	String log = (String) session.getAttribute("log");
+	
 	if (log==null) {
+		System.out.println("log = true "+log); 
 	%>
 <form method="post" action="Login" id='formId'>
 <%}else{ %>
@@ -40,9 +41,9 @@
     <%
 		if (log!=null) {
 	%>
-       <h2><a href="profile.jsp" id="loginform">My profile</a> | <a href="#" id="logout">Logout</a></h2>
+      <h2><a href="profile.jsp" id="loginform">My profile</a> | <a href="#" id="logout">Logout</a></h2>
 	  <%}else{ %>
-	  <h2><a href="#" id="loginform">Login</a> | <a href="beforeRegister.jsp">Register</a></h2><%} %>
+	  <h2><a href="#" id="loginform">Login</a> | <a href="Register.jsp">Register</a></h2><%} %>
     <div class="login">
       <div class="arrow-up"></div>
       <div class="formholder">
@@ -52,7 +53,7 @@
              <input type="email" name="email" placeholder="example@example.com" />
              <label >Password</label>
              <input type="password" name="password" placeholder="Password" />
-             <input type="submit" value="Login" /> 
+             <input type="submit" value="Login" style="background:#893838"/> 
            </fieldset>
         </div>
       </div>
@@ -89,9 +90,14 @@
       <a href="bmi.jsp">
         <li>Body mass index</li>
       </a>
+      <% if(log!=null){%>
       <a href="Challenges.jsp">
         <li>Challenges</li>
-      </a>
+      </a><%} %>
+      <% if(log!=null){%>
+      <a href="AskQ.jsp">
+        <li>Ask questions</li>
+      </a><%} %>
 		 <a href="Diet.jsp">
         <li>Diet</li>
 		</a>

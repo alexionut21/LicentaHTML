@@ -15,34 +15,11 @@
 	
 	<link rel="stylesheet" href="loginCSS.css?v=1.2">
 	<link rel="stylesheet" href="menu.css?v=1.3"> 
-	<link rel="stylesheet" href="register.css?v=1.39">
-<style>
-button:active {
-  box-shadow: 0 3px 0 #00823F;
-  top: 3px;}
-  </style>
+	<link rel="stylesheet" href="register.css?v=1.45">
+
 </head>	
 	<body>
-	<div id="wrap">
-  <div id="regbar">
-    <div id="navthing">
-    <div class="login">
-      <div class="arrow-up"></div>
-      <div class="formholder">
-        <div class="randompad">
-           <fieldset>
-             <label name="email">Email</label>
-             <input type="email" placeholder="example@example.com" />
-             <label name="password">Password</label>
-             <input type="password" placeholder="Password" />
-             <input type="submit" value="Login" /> 
-           </fieldset>
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
-</div>
+
 
 <nav role="navigation">
   <div id="menuToggle">
@@ -100,11 +77,11 @@ width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
    <tr>
    <td align="center">
    <input id='fem' type="radio" name="gender" autocomplete="off" value="F">
-   <label for='fem'><button ><img class="img_lifestyle" src="female.png"></button></label>
+   <label for='fem'><img class="img_lifestyle" src="female.png"></label>
    </td>
     <td align="center">
    <input id='ma' type="radio" name="gender" autocomplete="off" value="B">
-   <label for='ma'><img class="img_lifestyle"  src="male.png"></label>
+   <label for='ma'><img class="img_lifestyle"  src="male.png" "></label>
    </td>
    </tr>
    </table>
@@ -163,15 +140,15 @@ width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
    <table>
    <tr>
    <td align="center">
-   <input id='sedentary' type="radio" name="lifestyle" autocomplete="off" value="sedentary">
+   <input id='sedentary' type="radio" name="lifestyle" autocomplete="off" value="sedentar">
    <label  for='sedentary'><img class="img_lifestyle" src="3.jpg"></label>
    </td>
     <td align="center">
-   <input id='moderatly' type="radio" name="lifestyle" autocomplete="off" value="moderatly">
+   <input id='moderatly' type="radio" name="lifestyle" autocomplete="off" value="semiActiv">
    <label for='moderatly'><img class="img_lifestyle"  src="2.jpg"></label>
    </td>
     <td align="center">
-    <input id='active' type="radio" name="lifestyle" autocomplete="off" value="active">
+    <input id='active' type="radio" name="lifestyle" autocomplete="off" value="activ">
     <label for='active'><img class="img_lifestyle" src="1.jpg"></label>		
    </td>
    </tr>
@@ -257,11 +234,11 @@ width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
    </tr>
    <tr>
    <td align="right">
-   <input id='loseWeight' type="radio" name="objective" autocomplete="off" value="loseWeight">
+   <input id='loseWeight' type="radio" name="objective" autocomplete="off" value="slabire">
    <label  for='loseWeight'><img class="img_lifestyle" src="https://png.pngtree.com/element_origin_min_pic/17/04/13/8fb1d65a9b2b87dc70a1e190d7399cf5.jpg"></label>
    </td>
     <td align="right">
-   <input id='GainMuscle' type="radio" name="objective" autocomplete="off" value="GainMuscle">
+   <input id='GainMuscle' type="radio" name="objective" autocomplete="off" value="hipertrofie">
    <label for='GainMuscle'><img class="img_lifestyle"  src="https://dietbros.com/wp-content/uploads/2017/01/Before-After-Protein.png"></label>
    </td>
    </tr>
@@ -272,7 +249,7 @@ width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 <div class="tab">Info:
   <p><input name="email" placeholder="E-mail..." oninput="this.className = ''"></p>
   <p><input name="phone" placeholder="Phone..." oninput="this.className = ''"></p>
-  <p><input name="password" placeholder="Password..." oninput="this.className = ''"></p>
+  <p><input name="password" type="password" placeholder="Password..." oninput="this.className = ''"></p>
 </div>
 <div class="tab">
 

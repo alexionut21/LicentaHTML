@@ -2,6 +2,8 @@
 <%@ page import="licenta.quotes"%>
 <%@ page import="licenta.DBConnection"%>
 <%@ page import="views.Utilizator"%>
+<%@ page import="views.Anamneza"%>
+<%@ page import="licenta.Select"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="javax.servlet.http.HttpServletResponse" %>
@@ -25,22 +27,37 @@
 	<link rel="stylesheet" href="popup.css">
 	<link rel="stylesheet" href="challenges.css?v=1.9">
 </head>
+
 <body>
 
-  <div id="wrap">
+ <%	String log = (String) session.getAttribute("log");
+ 	String pass = (String) session.getAttribute("pass");
+	System.out.println("LOG "+log); 
+	if (log==null) {
+	%>
+<form method="post" action="Login" id='formId'>
+<%}else{ %>
+<form method="post" action="logout" id='formId'>
+<%} %>
+ <div id="wrap">
   <div id="regbar">
     <div id="navthing">
-      <h2><a href="profile.jsp" id="loginform">My profile</a> | <a href="#">Logout</a></h2>
+    <%
+		if (log!=null) {
+	%>
+      <h2><a href="profile.jsp" id="loginform">My profile</a> | <a href="#" id="logout">Logout</a></h2>
+	  <%}else{ %>
+	  <h2><a href="#" id="loginform">Login</a> | <a href="Register.jsp">Register</a></h2><%} %>
     <div class="login">
       <div class="arrow-up"></div>
       <div class="formholder">
         <div class="randompad">
            <fieldset>
-             <label name="email">Email</label>
-             <input type="email" placeholder="example@example.com" />
-             <label name="password">Password</label>
-             <input type="password" placeholder="Password" />
-             <input type="submit" value="Login" /> 
+             <label>Email</label>
+             <input type="email" name="email" placeholder="example@example.com" />
+             <label >Password</label>
+             <input type="password" name="password" placeholder="Password" />
+             <input type="submit" value="Login" style="background:#893838"/> 
            </fieldset>
         </div>
       </div>
@@ -48,7 +65,13 @@
     </div>
   </div>
 </div>
-
+<%
+		String msg = (String) request.getAttribute("msg");
+		if (msg != null && msg != "null") {
+	%>
+	<div style="margin-left:37%;font-size:30px;color:red;"><%=msg %></div>
+<% }%>
+</form>
 <nav role="navigation">
   <div id="menuToggle">
    <input type="checkbox" />
@@ -89,19 +112,23 @@
         </div>
     </div>
 </div>
-<% String nume = (String) request.getAttribute("nume");
-   String prenume = (String) request.getAttribute("prenume");
-   String sex = (String) request.getAttribute("sex");
-   String greutate = (String) request.getAttribute("greutate");
-   String stilViata = (String) request.getAttribute("stilViata");
-   String nivelStres = (String) request.getAttribute("nivelStres");
-   String tipSomatic = (String) request.getAttribute("tipSomatic");
-   String obiectiv = (String) request.getAttribute("obiectiv");
-   String inaltime = (String) request.getAttribute("inaltime");
-   String imc = (String) request.getAttribute("imc");
-%>
+<%
+Utilizator util = Select.selectUtilizatorForProfile(log, pass);
+		Anamneza anam = Select.selectAnamnezaForProfile(util.getId_utilizator());
+		String pdf = (String) request.getAttribute("antre");
+		String nume = util.getNume();
+		   String prenume = util.getPrenume();
+		   String sex = anam.getSex();
+		   String greutate = "" + anam.getGreutate();
+		   String inaltime = "" + anam.getInaltime();		
+		   String stilViata = anam.getStil_viata();
+		   String nivelStres = anam.getNivel_stres();
+		   String tipSomatic = anam.getTip_somatic();
+		   String obiectiv = anam.getObiectiv();	   
+		   String imc = (String) request.getAttribute("imc");
+		   %>
 <!-- About -->
-<div class="about-me" id="about"> 
+<div class="about-me" id="about" style="margin-bottom:18%"> 
 	<center><h3 style=" background-image: url(https://lazarangelov.academy/assets/img/png/program-workout-black-pattern.png);
 width:30%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;text-align:center;">My Profile</h3></center>
 	<div class="container" style="margin-left:5%;width:1000px;font-size:21px;color:white;">
@@ -112,7 +139,7 @@ width:30%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 				<br>
 				<input type="file" id="profile_image" style="display: none;" />
 				<input type="button" style="font-family: 'Gloria Hallelujah', cursive;font-size:21px;color:black;" value="Browse..." onclick="document.getElementById('profile_image').click();" />
-					<h3><%=nume %><br><%=prenume %></h3>					
+					<h3>Name:<%=nume %><br><%=prenume %></h3>					
 				</div>
 			</div>
 			<div class="col-md-8 col-xs-12"> 
@@ -133,11 +160,7 @@ width:30%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 										<td><span class="longline2"></span><span class="shortline2"></span></td>
 										<td><p><%=obiectiv %></p></td>
 									</tr>
-									<tr>
-										<td><h4 style="font-size:21px;color:#893838;">Date of birth</h4></td>
-										<td><span class="longline3"></span><span class="shortline3"></span></td>
-										<td><p>.getRegisterDate()</p></td>
-									</tr>
+									
 									<tr>
 										<td><h4 style="font-size:21px;color:#893838;">Height</h4></td>
 										<td><span class="longline4"></span><span class="shortline4"></span></td>
@@ -154,27 +177,28 @@ width:30%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 										<td><p><%=tipSomatic %></p></td>
 									</tr>
 									<tr>
-										<td><h4 style="font-size:21px;color:#893838;"><a href="MenAdvLW.pdf" download>Download training</a></h4></td>						
-									</tr>								
+										<td><h4 style="font-size:21px;color:white;"><a href="<%=pdf %>.pdf" download>Download training</a></h4></td>						
+											<td><span class="longline5"></span><span class="shortline5"></span></td>
+										<td></td>							
 								</tbody>
-							</table>
+							</table><br><br>
 						</div>	
 					</div>
 				</div>	
 			</div>
 		</div>	
-	</div><br><br><br><br><br><br><br><br><br><br>
+	</div>
 </div>
-<div class="box">
+<!-- <div class="box">
     <div class="row">
         <div class="col-md-12">
-            <!-- Challenge Exercise -->
+            Challenge Exercise
             <div class="col-md-3">
                                     <img src="challengesGifs/alternating_dumbbell_single_leg_deadlift-5943e80f54e13.gif" class="img-responsive center-block" width="100%" alt="Alternate Dumbbell Single Leg Deadlift">
                             </div>
-            <!-- /Challenge Exercise -->
+            /Challenge Exercise
 
-            <!-- Challenge Meta -->
+            Challenge Meta
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-8"><br><br>
@@ -193,8 +217,23 @@ width:30%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 
         </div>
     </div>
-</div>
+</div> -->
 <!-- /About -->
+
+
+
+</body>
+<footer style="background: linear-gradient(to bottom right, #ffffff 27%, #d8c3ba 100%);height:10%"; margin-top:100%>
+  <center>
+<a style="font-size:22px;font-family: 'IM Fell Great Primer SC', serif;" href="SiteMap.jsp">Site Map</a> | 
+<a style="font-size:22px;font-family: 'IM Fell Great Primer SC', serif;"href="#">Privacy Policy</a>
+<img  border="0" class="img_zoom" src="footer\twitter.png" style="height:40px;width:40px; float:center;" title="Twitter" alt="Twitter">
+<img border="0" class="img_zoom" src="footer\facebook.png" style="height:40px;width:40px; float:center;" title="Facebook" alt="Facebook">
+<img border="0" class="img_zoom" src="footer\ldn.png" style="height:40px;width:40px; float:center;" title="linkedin" alt="linkedin">
+<img border="0" class="img_zoom" src="footer\googleplus.png" style="height:40px;width:40px; float:center;"  title="GooglePlus" alt="GooglePlus">
+<p style="font-size:20px;font-family: 'IM Fell Great Primer SC', serif;">Nume Site &copy;. All rights reserved.</p>
+</center>
+</footer>
 <script>
 setTimeout(function(){
 	    $(".moving-zone").delay(5000).fadeIn(500);
@@ -206,19 +245,12 @@ setTimeout(function(){
 	<script src="jquery.big-slide.js"></script>
 	<script  src="loginJS.js"></script>
 	<script  src="popup.js"></script>
-<br><br>
-<footer style="background: linear-gradient(to bottom right, #ffffff 27%, #d8c3ba 100%);height:10%">
-  <center>
-<a style="font-size:22px;font-family: 'IM Fell Great Primer SC', serif;" href="SiteMap.jsp">Site Map</a> | 
-<a style="font-size:22px;font-family: 'IM Fell Great Primer SC', serif;"href="#">Privacy Policy</a>
-<img  border="0" class="img_zoom" src="footer\twitter.png" style="height:40px;width:40px; float:center;" title="Twitter" alt="Twitter">
-<img border="0" class="img_zoom" src="footer\facebook.png" style="height:40px;width:40px; float:center;" title="Facebook" alt="Facebook">
-<img border="0" class="img_zoom" src="footer\ldn.png" style="height:40px;width:40px; float:center;" title="linkedin" alt="linkedin">
-<img border="0" class="img_zoom" src="footer\googleplus.png" style="height:40px;width:40px; float:center;"  title="GooglePlus" alt="GooglePlus">
-<p style="font-size:20px;font-family: 'IM Fell Great Primer SC', serif;">Nume Site &copy;. All rights reserved.</p>
-</center>
-</footer>
-</body>
+<script>
+document.getElementById("logout").onclick = function() {
+    document.getElementById("formId").submit();
+}
+</script>
+
 <script>
 $(function(){
     $('#profile_image').change( function(e) {        

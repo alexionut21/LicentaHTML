@@ -226,13 +226,11 @@ box-shadow: 10px 10px 5px #ccc;
 			-webkit-box-shadow: 10px 10px 5px #ccc;
 			-khtml-box-shadow: 10px 10px 5px #ccc;
 }
-
 .img_lifestyle:target {
     border-radius:20%;
 
 width:220px;
 height:220px;
 }
-
 
 

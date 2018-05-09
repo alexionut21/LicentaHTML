@@ -32,7 +32,7 @@
   <div id="wrap">
   <div id="regbar">
     <div id="navthing">
-      <h2><a href="profile.jsp" id="loginform">My profile</a> | <a href="#" id="logout">Logout</a></h2>
+      <h2><a href="#" id="loginform">Logout</a></h2>
     <div class="login">
     </div>
     </div>

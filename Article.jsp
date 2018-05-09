@@ -29,33 +29,33 @@
 </head>
 
 <body>
-<%	String log = (String) request.getAttribute("log");
-	System.out.println("JSP "+log); 
+<%	String log = (String) session.getAttribute("log");
+	System.out.println("LOG "+log); 
 	if (log==null) {
 	%>
 <form method="post" action="Login" id='formId'>
 <%}else{ %>
 <form method="post" action="logout" id='formId'>
 <%} %>
-  <div id="wrap">
+ <div id="wrap">
   <div id="regbar">
     <div id="navthing">
     <%
 		if (log!=null) {
 	%>
-       <h2><a href="profile.jsp" id="loginform">My profile</a> | <a href="#" id="logout">Logout</a></h2>
+      <h2><a href="profile.jsp" id="loginform">My profile</a> | <a href="#" id="logout">Logout</a></h2>
 	  <%}else{ %>
-	  <h2><a href="#" id="loginform">Login</a> | <a href="beforeRegister.jsp">Register</a></h2><%} %>
+	  <h2><a href="#" id="loginform">Login</a> | <a href="Register.jsp">Register</a></h2><%} %>
     <div class="login">
       <div class="arrow-up"></div>
       <div class="formholder">
         <div class="randompad">
            <fieldset>
-             <label name="email">Email</label>
-             <input type="email" placeholder="example@example.com" />
-             <label name="password">Password</label>
-             <input type="password" placeholder="Password" />
-             <input type="submit" value="Login" /> 
+             <label>Email</label>
+             <input type="email" name="email" placeholder="example@example.com" />
+             <label >Password</label>
+             <input type="password" name="password" placeholder="Password" />
+             <input type="submit" value="Login" style="background:#893838"/> 
            </fieldset>
         </div>
       </div>
