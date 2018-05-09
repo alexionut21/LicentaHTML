@@ -52,25 +52,26 @@ button:active {
     <span></span>
     <span></span>
    
-    <ul id="menu">
-      <b href="#">
+    
+    <ul id="menu" style="width:300px">
+      <a href="login.jsp">
         <li>Home</li>
-      </b>
-      <b href="#">
+      </a>
+      <a href="Article.jsp">
         <li>Articles</li>
-      </b>
-      <b href="#">
-        <li>Videos</li>
-      </b>
-      <b href="#">
-        <li>Contact</li>
-      </b>
-      <b href="#">
+      </a>
+      <a href="Calc.jsp">
+        <li>Calorie calculator</li>
+      </a>
+      <a href="bmi.jsp">
+        <li>Body mass index</li>
+      </a>
+      <a href="Challenges.jsp">
         <li>Challenges</li>
-      </b>
-		 <b href="#">
-        <li>Community</li>
-		</b>
+      </a>
+		 <a href="Diet.jsp">
+        <li>Diet</li>
+		</a>
     </ul>
   </div>
 </nav>
@@ -188,10 +189,10 @@ width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 </tr>
 <tr>
 <td></td>
-<td id="frame" align="center"><input id='one' type="radio" name="q1" autocomplete="off" value="yes">
-            <label class='block' for='one'></label> </td>
-<td id="frame" align="center"><input id='two' type="radio" name="q1" autocomplete="off" value="no">
-            <label class='block' for='two'></label>	</td>
+<td id="frame" align="center"><input id='seven' type="radio" name="q1" autocomplete="off" value="yes">
+            <label class='block' for='seven'></label></td>
+<td id="frame" align="center"><input id='eight' type="radio" name="q1" autocomplete="off" value="no">
+            <label class='block' for='eight'></label></td>
 </tr>
 <tr>
 <td align="center">Have you ever had surgery?</td>
@@ -201,11 +202,18 @@ width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 </tr>
 <tr>
 <td></td>
-<td id="frame" align="center"><input id='one' type="radio" name="q2" autocomplete="off" value="yes">
-            <label class='block' for='one'></label> </td>
-<td id="frame" align="center"><input id='two' type="radio" name="q2" autocomplete="off" value="no">
-            <label class='block' for='two'></label>	</td>
+<td id="frame" align="center"><input id='nine' type="radio" name="q2" autocomplete="off" value="yes">
+            <label class='block' for='nine'></label></td>
+<td id="frame" align="center"><input id='ten' type="radio" name="q2" autocomplete="off" value="no">
+            <label class='block' for='ten'></label></td>
 </tr>
+</table>
+<br><br><br><br><br><br><br><br><br><br><br><br>	
+</div>
+
+
+<div class="tab">
+<table style="width:40%;font-size:20px;color:white" align="left">
 <tr>
 <td align="center">Any Heart disease?</td>
 <td align="center">Yes</td>
@@ -215,10 +223,10 @@ width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 
 <tr>
 <td></td>
-<td id="frame" align="center"><input id='three' type="radio" name="q3" autocomplete="off" value="yes">
-            <label class='block' for='three'></label> </td>
-<td id="frame" align="center"><input id='four' type="radio" name="q3" autocomplete="off" value="no">
-            <label class='block' for=''four'></label>	</td>
+<td id="frame" align="center"><input id='eleven' type="radio" name="q3" autocomplete="off" value="yes">
+            <label class='block' for='eleven'></label> </td>
+<td id="frame" align="center"><input id='twelve' type="radio" name="q3" autocomplete="off" value="no">
+            <label class='block' for='twelve'></label>	</td>
 </tr>
 <tr>
 <td align="center">Are you currently treated for any disease?</td>
@@ -228,13 +236,13 @@ width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 </tr>
 <tr>
 <td></td>
-<td id="frame" align="center"><input id='five' type="radio" name="q4" autocomplete="off" value="yes">
-            <label class='block' for='five'></label> </td>
-<td id="frame" align="center"><input id='six' type="radio" name="q4" autocomplete="off" value="no">
-            <label class='block' for='six'></label>	</td>
+<td id="frame" align="center"><input id='thirteen' type="radio" name="q4" autocomplete="off" value="yes">
+            <label class='block' for='thirteen'></label></td>
+<td id="frame" align="center"><input id='fourteen' type="radio" name="q4" autocomplete="off" value="no">
+            <label class='block' for='fourteen'></label></td>
 </tr>
 </table>
-<br><br><br><br><br><br>	
+<br><br><br><br><br><br><br><br><br><br><br><br>	
 </div>
 
 <div class="tab">How you better describe yourself:
@@ -280,6 +288,7 @@ width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 
 <!-- Circles which indicates the steps of the form: -->
 <div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
   <span class="step"></span>
   <span class="step"></span>
   <span class="step"></span>

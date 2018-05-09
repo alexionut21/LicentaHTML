@@ -29,11 +29,23 @@
 </head>
 
 <body>
-
+<%	String log = (String) request.getAttribute("log");
+	System.out.println("JSP "+log); 
+	if (log==null) {
+	%>
+<form method="post" action="Login" id='formId'>
+<%}else{ %>
+<form method="post" action="logout" id='formId'>
+<%} %>
   <div id="wrap">
   <div id="regbar">
     <div id="navthing">
-      <h2><a href="#" id="loginform">Login</a> | <a href="#">Register</a></h2>
+    <%
+		if (log!=null) {
+	%>
+       <h2><a href="profile.jsp" id="loginform">My profile</a> | <a href="#" id="logout">Logout</a></h2>
+	  <%}else{ %>
+	  <h2><a href="#" id="loginform">Login</a> | <a href="beforeRegister.jsp">Register</a></h2><%} %>
     <div class="login">
       <div class="arrow-up"></div>
       <div class="formholder">
@@ -51,6 +63,13 @@
     </div>
   </div>
 </div>
+<%
+		String msg = (String) request.getAttribute("msg");
+		if (msg != null && msg != "null") {
+	%>
+	<div style="margin-left:37%;font-size:30px;color:red;"><%=msg %></div>
+<% }%>
+</form>
 
 <nav role="navigation">
   <div id="menuToggle">
@@ -132,7 +151,11 @@ $(".hover").mouseleave(
 	<script  src="flipCard.js"></script>
 
 
-
+<script>
+document.getElementById("logout").onclick = function() {
+    document.getElementById("formId").submit();
+}
+</script>
 </body>
 
 </html>
