@@ -37,65 +37,40 @@
     </div>
     </div>
   </div>
-</div>
-
-<nav role="navigation">
-  <div id="menuToggle">
-   <input type="checkbox" />
-   
-   <span></span>
-    <span></span>
-    <span></span>
-   
-     <ul id="menu" style="width:300px">
-      <a href="login.jsp">
-        <li>Home</li>
-      </a>
-      <a href="Article.jsp">
-        <li>Articles</li>
-      </a>
-      <a href="Calc.jsp">
-        <li>Calorie calculator</li>
-      </a>
-      <a href="bmi.jsp">
-        <li>Body mass index</li>
-      </a>
-      <a href="Challenges.jsp">
-        <li>Challenges</li>
-      </a>
-		 <a href="Diet.jsp">
-        <li>Diet</li>
-		</a>
-    </ul>
-  </div>
-</nav>   
+</div>  
 
 
 <center><h1 style=" background-image: url(https://lazarangelov.academy/assets/img/png/program-workout-black-pattern.png);
-width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;text-align:center;"> Comunity News </h1></center>
-
+width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;text-align:center;"> Insert exercise </h1></center>
  <div>
         <div class="container" style="margin-left:20%;width:780px;font-size:17px;background-color:transparent;">
 			<div class="tooltable" style="background-color:transparent;" >
 				<div class="row">
-					<form method="post" action="Challenges.jsp">
+					<form method="post" action="Exercise">
 							<div class="group" >	
-						<br><label style="color:#893838;font-family: 'Gloria Hallelujah', cursive;font-size:19px;" >Describe chellenge</label>
-							<textarea rows="7" style="font-family: 'Gloria Hallelujah', cursive;font-size:21px;color:black;" class="form-control" name="descriere" id="descriere" placeholder="Describe chellenge..." style="color:black;font-family: 'Gloria Hallelujah', cursive;font-size:18px;" ></textarea>							
-							<label style="color:#893838;font-family: 'Gloria Hallelujah', cursive;font-size:19px;" >Day</label>
-							<select name="ziAfisare" style="color:black;font-family: 'Gloria Hallelujah', cursive;font-size:19px;">
-  							<option value="Monday">Monday</option>
-							<option value="Tuesday">Tuesday</option>
-							<option value="Wednesday">Wednesday</option>
-							<option value="Thursday">Thursday</option>
-							<option value="Friday">Friday</option>
-							<option value="Saturday">Saturday</option>
-							<option value="Sunday">Sunday</option>
-							</select>
-						<br><label name="nrRepetari" style="color:#893838;font-family: 'Gloria Hallelujah', cursive;font-size:19px;" >Number of reps</label>
-							<input name="nrRepetari" style="font-family: 'Gloria Hallelujah', cursive;font-size:21px;color:black;" placeholder="Number of reps..." id="nrRepetari"  autocorrect="off">
-					<br><br><input type="file" id="image" name="image" style="font-family: 'Gloria Hallelujah', cursive;font-size:21px;color:black;" value="Browse..."/>				
-							</div><br>
+							<label name="name"  style="color:#893838;font-family: 'Gloria Hallelujah', cursive;font-size:19px;" >Exercise name</label>
+							<input name="name" style="font-family: 'Gloria Hallelujah', cursive;font-size:21px;color:black;" placeholder="Exercise name..." id="title"  autocorrect="off"><br>
+							<label name="pozaInceput"  style="color:#893838;font-family: 'Gloria Hallelujah', cursive;font-size:19px;" >Start position</label>
+							<input type="file" id="pozaInceput" name="pozaInceput" style="font-family: 'Gloria Hallelujah', cursive;font-size:21px;color:black;" value="Browse..."/>				
+							<label name="pozaSfarsit" style="color:#893838;font-family: 'Gloria Hallelujah', cursive;font-size:19px;" >End position</label>	
+							<input type="file" id="pozaSfarsit" name="pozaSfarsit" style="font-family: 'Gloria Hallelujah', cursive;font-size:21px;color:black;" value="Browse..."/>	
+							<label name="content" style="color:#893838;font-family: 'Gloria Hallelujah', cursive;font-size:19px;" >Content</label>
+							<textarea rows="7" style="font-family: 'Gloria Hallelujah', cursive;font-size:21px;color:black;" class="form-control" name="content" id="content" placeholder="Describe exercise..." style="color:black;font-family: 'Gloria Hallelujah', cursive;font-size:18px;" ></textarea>							
+							<label name="name"  style="color:#893838;font-family: 'Gloria Hallelujah', cursive;font-size:19px;" >Muscle Group</label>
+							<select name="MuscleGroup" style="color:black;font-family: 'Gloria Hallelujah', cursive;font-size:19px;">
+  							<option value="Chest">Chest</option>
+							<option value="Back">Back</option>
+							<option value="Abs">Abs</option>
+							<option value="Legs">Legs</option>
+							<option value="Shoulders">Shoulders</option>
+							<option value="Traps">Traps</option>
+							<option value="Biceps">Biceps</option>
+							<option value="Triceps">Triceps</option>
+							</select><br>							
+							<label name="reps"  style="color:#893838;font-family: 'Gloria Hallelujah', cursive;font-size:19px;" >Repetitions</label>
+							<input name="reps" style="font-family: 'Gloria Hallelujah', cursive;font-size:21px;color:black;" placeholder="Repetitions..." id="title"  autocorrect="off"><br>
+						
+							 </div><br>
 							<div class="group">
 							 <div class="space-top-large">
 					            <input type="submit" class="btn btn-blue btn-large float-center text-tall" style="padding: 7px 40px;float:right;background: #893838;color:white" onClick="calcalcIt();event.preventDefault();" id="Button1" name="Button1">
@@ -123,23 +98,6 @@ width:50%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 </center>
 
 </footer>
- 
-    
-
-<script>
-/* Demo purposes only */
-$(".hover").mouseleave(
-  function() {
-    $(this).removeClass("hover");
-  }
-);</script>
-	<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-	<script src="jquery.big-slide.js"></script>
-	<script  src="loginJS.js"></script>
-	<script  src="flipCard.js"></script>
-
 
 
 </body>

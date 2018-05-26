@@ -67,6 +67,7 @@
     </div>
   </div>
 </div>
+</form>
 <%
 		String msg = (String) request.getAttribute("msg");
 		if (msg != null && msg != "null") {
@@ -142,15 +143,17 @@ for(Provocare pro : provocare){%>
             </div>
             <!-- /Challenge Meta -->
 
+				
             <!-- Challenge Actions -->
+            <form method="post" action="InsertUtilizatorProvocare">
             <div class="col-md-3">
                 <div class="single-action text-center"><br><br><br><br><br>
-                    <a href="/challenge/daily/151/Alternate%20Dumbbell%20Single%20Leg%20Deadlift%20%28per%20side%29" class="btn txt-uppercase">
-                        Join Challenge
-                    </a>
+                <input type="text" value="<%=pro.getId_provocare() %>" name="idProvocare"/>
+                    <input type="submit" class="btn txt-uppercase" name="Submit" value="Join Challenge">              
                 </div>
                 
             </div>
+            </form>
             <!-- /Challenge Actions -->
 
         </div>

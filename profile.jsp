@@ -1,9 +1,11 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="licenta.quotes"%>
 <%@ page import="licenta.DBConnection"%>
+<%@ page import="licenta.DataParser"%>
 <%@ page import="views.Utilizator"%>
 <%@ page import="views.Anamneza"%>
 <%@ page import="licenta.Select"%>
+<%@ page import="views.Provocare"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="javax.servlet.http.HttpServletResponse" %>
@@ -115,7 +117,7 @@
 <%
 Utilizator util = Select.selectUtilizatorForProfile(log, pass);
 		Anamneza anam = Select.selectAnamnezaForProfile(util.getId_utilizator());
-		String pdf = (String) request.getAttribute("antre");
+		String pdf = (String) session.getAttribute("antre");
 		String nume = util.getNume();
 		   String prenume = util.getPrenume();
 		   String sex = anam.getSex();
@@ -128,6 +130,7 @@ Utilizator util = Select.selectUtilizatorForProfile(log, pass);
 		   String imc = (String) request.getAttribute("imc");
 		   %>
 <!-- About -->
+		<form metho="post" action="UpdateProfilePhoto">
 <div class="about-me" id="about" style="margin-bottom:18%"> 
 	<center><h3 style=" background-image: url(https://lazarangelov.academy/assets/img/png/program-workout-black-pattern.png);
 width:30%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;text-align:center;">My Profile</h3></center>
@@ -135,13 +138,14 @@ width:30%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 		<div class="row">
 			<div class="col-md-4 col-xs-12">
 				<div class="mydetails slideanim text-center">
-				<img class="img-circle img-responsive" src="http://placehold.it/200x200" id="trash" alt="Generic placeholder image" width="200" height="200" >				
+				<img class="img-circle img-responsive" src="http://placehold.it/250x250" id="trash"  alt="Generic placeholder image" width="250" height="250" >				
 				<br>
-				<input type="file" id="profile_image" style="display: none;" />
 				<input type="button" style="font-family: 'Gloria Hallelujah', cursive;font-size:21px;color:black;" value="Browse..." onclick="document.getElementById('profile_image').click();" />
+				<input type="file" name="profile_image" id="profile_image" style="display: none;" />
 					<h3>Name:<%=nume %><br><%=prenume %></h3>					
 				</div>
 			</div>
+	
 			<div class="col-md-8 col-xs-12"> 
 				<div class="myskills slideanim">
 					<h3 class="text-center" style="font-size:34px;color:#893838;">About me</h3>
@@ -188,41 +192,40 @@ width:30%;color:white;font-family: 'Gloria Hallelujah', cursive;font-size:50px;t
 			</div>
 		</div>	
 	</div>
-</div>
-<!-- <div class="box">
+</div>		
+</form>
+<div class="box" style="margin-top:20%">
+<%int idUtilizator = (int) session.getAttribute("id");
+ArrayList<Provocare> provocare=Select.selectUtilizatorProvocare(idUtilizator);
+for(Provocare pr :provocare){ %>
+ 
     <div class="row">
         <div class="col-md-12">
-            Challenge Exercise
+            <!-- Challenge Exercise -->
             <div class="col-md-3">
-                                    <img src="challengesGifs/alternating_dumbbell_single_leg_deadlift-5943e80f54e13.gif" class="img-responsive center-block" width="100%" alt="Alternate Dumbbell Single Leg Deadlift">
+                                    <img src="<%=pr.getImagine() %>" class="img-responsive center-block" width="100%" alt="<%=pr.getDescriere() %>">
                             </div>
-            /Challenge Exercise
+            <!-- /Challenge Exercise -->
 
-            Challenge Meta
+            <!-- Challenge Meta -->
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-8"><br><br>
                         <div class="challenge-deadline">
-                            December 2, 2017
+                            <%=DataParser.returnDate(pr.getData()) %>
                         </div>
                         <div class="challenge-name">
-                                 Alternate Dumbbell Single Leg Deadlift (per side)
+                               <%=pr.getDescriere() %>
                                                     </div>
                         <div class="challenge-target">
-                            Target: <span>30 REPS</span>
+                            Target: <span><%=pr.getRepetare() %></span>
                         </div>
                     </div>
                 </div>
             </div>
-
-        </div>
-    </div>
-</div> -->
+ </div></div><%} %></div>
 <!-- /About -->
-
-
-
-</body>
+</body><br><br>
 <footer style="background: linear-gradient(to bottom right, #ffffff 27%, #d8c3ba 100%);height:10%"; margin-top:100%>
   <center>
 <a style="font-size:22px;font-family: 'IM Fell Great Primer SC', serif;" href="SiteMap.jsp">Site Map</a> | 
@@ -250,7 +253,6 @@ document.getElementById("logout").onclick = function() {
     document.getElementById("formId").submit();
 }
 </script>
-
 <script>
 $(function(){
     $('#profile_image').change( function(e) {        
@@ -259,4 +261,5 @@ $(function(){
     });
 });
 </script>
+
 </html>
